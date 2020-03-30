@@ -33,14 +33,13 @@ export default class GuestContextProvider extends Component {
   };
 
   render() {
+    const contextValues = {
+      ...this.state,
+      handleInputChange: this.handleInputChange,
+      handleSubmitForm: this.handleSubmitForm
+    };
     return (
-      <GuestContext.Provider
-        value={{
-          ...this.state,
-          handleInputChange: this.handleInputChange,
-          handleSubmitForm: this.handleSubmitForm
-        }}
-      >
+      <GuestContext.Provider value={contextValues}>
         {this.props.children}
       </GuestContext.Provider>
     );
